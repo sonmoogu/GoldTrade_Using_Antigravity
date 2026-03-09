@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRX Gold Autonomous Trader</title>
+    <!-- Modern Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="topbar">
+            <div class="logo">
+                <div class="glow-icon"></div>
+                <h1>KRX Gold AI <span class="tag">Alpha</span></h1>
+            </div>
+            <div class="controls">
+                <button id="toggle-trading-btn" class="btn primary">Start Trading</button>
+                <div class="status-indicator">
+                    <span id="status-dot" class="dot"></span>
+                    <span id="status-text">Paused</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Dashboard -->
+        <main class="dashboard">
+            <!-- Market Overview -->
+            <section class="card market-card">
+                <h2>Market Data</h2>
+                <div class="data-grid">
+                    <div class="data-item">
+                        <span class="label">Current Price</span>
+                        <span class="val highlight" id="price-val">₩0</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">SMA 20</span>
+                        <span class="val" id="sma-val">0</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Buy/Sell Volume</span>
+                        <span class="val" id="vol-val">0 / 0</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Account Portfolio -->
+            <section class="card portfolio-card">
+                <h2>Account Status</h2>
+                <div class="data-grid">
+                    <div class="data-item">
+                        <span class="label">Balance</span>
+                        <span class="val" id="balance-val">₩0</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Gold Inventory</span>
+                        <span class="val" id="inventory-val">0 g</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Active Rules -->
+            <section class="card rules-card">
+                <h2>Strategy Rules</h2>
+                <ul class="rule-list">
+                    <li><span class="rule-title">Entry:</span> Golden Cross (Price > SMA 20) & Buy Vol > 1.5x Sell Vol</li>
+                    <li><span class="rule-title">Sizing:</span> Max 15% capital per trade</li>
+                    <li><span class="rule-title">Take Profit:</span> +4.5%</li>
+                    <li><span class="rule-title">Stop Loss:</span> -2.0%</li>
+                </ul>
+            </section>
+
+            <!-- Active Positions -->
+            <section class="card positions-card">
+                <h2>Active Positions</h2>
+                <div class="positions-list" id="positions-list">
+                    <div class="empty-state">No active positions.</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
