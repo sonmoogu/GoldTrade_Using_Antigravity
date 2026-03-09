@@ -5,7 +5,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from typing import Dict, Any, List
 
-from backend.broker_api import MockBrokerAPI
+from backend.broker_api import KoreaInvestmentBrokerAPI
 from backend.risk_management import RiskManager
 from backend.trading_engine import TradingEngine
 
@@ -15,7 +15,7 @@ logger = logging.getLogger("Main")
 app = FastAPI(title="KRX Gold Auto Trader")
 
 # Instances
-broker = MockBrokerAPI()
+broker = KoreaInvestmentBrokerAPI()
 risk_manager = RiskManager()
 trading_engine = TradingEngine()
 
